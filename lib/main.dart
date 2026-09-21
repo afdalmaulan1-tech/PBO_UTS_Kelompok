@@ -79,7 +79,7 @@ class ZooApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey[100],
         appBarTheme: const AppBarTheme(
           elevation: 0,
-          backgroundColor: Colors.teal,
+          backgroundColor: Colors.blueAccent,
           centerTitle: true,
           titleTextStyle: TextStyle(
             fontSize: 20,
@@ -116,7 +116,7 @@ class _DaftarHewanScreenState extends State<DaftarHewanScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Zoo Explorer"),
+        title: const Text("Apotek Obat"),
       ),
       body: _daftarHewan.isEmpty
           ? Center(
