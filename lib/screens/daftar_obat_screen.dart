@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/obat.dart';
 import 'form_tambah_obat.dart';
 
@@ -44,6 +45,7 @@ class _DaftarObatScreenState extends State {
                 fontWeight: FontWeight.bold,
                 fontSize: 22,
                 color: Colors.white,
+                letterSpacing: 1.5,
               ),
             ),
             Text(
@@ -52,6 +54,7 @@ class _DaftarObatScreenState extends State {
                 fontSize: 13,
                 color: Colors.white70,
                 fontWeight: FontWeight.normal,
+                letterSpacing: 1,
               ),
             ),
           ],
@@ -113,10 +116,12 @@ class _DaftarObatScreenState extends State {
                             ? Image.network(
                                 obat.urlGambar,
                                 height: 180,
+                                width: 180,
                                 fit: BoxFit.cover,
                                 errorBuilder: (context, error, stackTrace) =>
                                     Container(
                                       height: 180,
+                                      width: 180,
                                       color: Colors.grey[300],
                                       child: const Icon(
                                         Icons.broken_image,
@@ -127,6 +132,7 @@ class _DaftarObatScreenState extends State {
                               )
                             : Container(
                                 height: 180,
+                                width: 180,
                                 color: Colors.green[100],
                                 child: const Icon(
                                   Icons.medication,
@@ -181,8 +187,11 @@ class _DaftarObatScreenState extends State {
             _tambahObat(obatBaru);
           }
         },
-        icon: const Icon(Icons.add),
-        label: const Text("Tambah Obat"),
+        icon: const Icon(Icons.add, color: Colors.white),
+        label: const Text(
+          "Tambah Obat",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.teal,
       ),
     );

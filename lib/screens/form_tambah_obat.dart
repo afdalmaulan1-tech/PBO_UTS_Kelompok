@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/obat.dart';
 
 class FormTambahObat extends StatefulWidget {
@@ -68,7 +69,25 @@ class _FormTambahObatState extends State<FormTambahObat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Tambah Data Obat")),
+      appBar: AppBar(
+        title: const Text(
+          "Tambah Data Obat",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            color: Colors.white,
+            letterSpacing: 1.5,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.teal.shade700,
+        iconTheme: const IconThemeData(color: Colors.white),
+        elevation: 4,
+        shadowColor: Colors.teal.withOpacity(0.4),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(0)),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Form(
@@ -78,7 +97,7 @@ class _FormTambahObatState extends State<FormTambahObat> {
             children: [
               DropdownButtonFormField(
                 initialValue: _jenisObat,
-                decoration: _inputStyle("Jenis Obat", Icons.category),
+                decoration: _inputStyle("Jenis Obat", Icons.category_outlined),
                 items: ['Sirup', 'Tablet', 'Salep']
                     .map(
                       (jenis) =>
@@ -96,7 +115,7 @@ class _FormTambahObatState extends State<FormTambahObat> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _namaController, // Menghubungkan Controller.
-                decoration: _inputStyle("Nama Obat", Icons.medication),
+                decoration: _inputStyle("Nama Obat", Icons.medication_outlined),
                 // Validasi nama tidak boleh kosong.
                 validator: (value) =>
                     value!.isEmpty ? 'Nama tidak boleh kosong' : null,
@@ -105,7 +124,10 @@ class _FormTambahObatState extends State<FormTambahObat> {
               TextFormField(
                 controller: _hargaController,
                 keyboardType: TextInputType.number,
-                decoration: _inputStyle("Harga (Rp)", Icons.attach_money),
+                decoration: _inputStyle(
+                  "Harga (Rp)",
+                  Icons.attach_money_outlined,
+                ),
                 validator: (value) {
                   if (value!.isEmpty) return 'Harga tidak boleh kosong';
                   if (int.tryParse(value) == null) return 'Harus berupa angka';
@@ -117,7 +139,7 @@ class _FormTambahObatState extends State<FormTambahObat> {
                 controller: _indikasiController,
                 decoration: _inputStyle(
                   "Indikasi / Kegunaan",
-                  Icons.health_and_safety,
+                  Icons.health_and_safety_outlined,
                 ),
                 validator: (value) =>
                     value!.isEmpty ? 'Indikasi tidak boleh kosong' : null,
@@ -125,7 +147,7 @@ class _FormTambahObatState extends State<FormTambahObat> {
               const SizedBox(height: 16),
               TextFormField(
                 controller: _gambarController,
-                decoration: _inputStyle("URL Gambar Obat", Icons.image),
+                decoration: _inputStyle("URL Gambar Obat", Icons.image_search),
                 validator: (value) =>
                     value!.isEmpty ? 'URL tidak boleh kosong' : null,
               ),
@@ -140,7 +162,7 @@ class _FormTambahObatState extends State<FormTambahObat> {
                       : _jenisObat == 'Tablet'
                       ? "Jumlah Butir"
                       : "Berat (gram)",
-                  Icons.info_outline,
+                  Icons.info_outlined,
                 ),
                 validator: (value) {
                   if (value!.isEmpty) return 'Atribut ini wajib diisi';
@@ -165,6 +187,7 @@ class _FormTambahObatState extends State<FormTambahObat> {
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
+                    letterSpacing: 1.5,
                   ),
                 ),
               ),

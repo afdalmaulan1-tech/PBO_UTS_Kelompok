@@ -18,7 +18,7 @@ abstract class Obat {
 
   // Method konkret: sudah memiliki isi dan dapat digunakan class turunan.
   String informasi() {
-    return "Harga : Rp \(harga\nIndikasi :\)indikasi";
+    return "Harga : Rp $harga\nIndikasi : $indikasi";
   }
 }
 
