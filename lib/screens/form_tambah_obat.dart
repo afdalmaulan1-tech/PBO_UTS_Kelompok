@@ -10,11 +10,9 @@ class FormTambahObat extends StatefulWidget {
 }
 
 class _FormTambahObatState extends State<FormTambahObat> {
-  // [KONSEP 2: VALIDASI]
   // Key untuk mengecek validasi semua input dalam Form.
   final _formKey = GlobalKey<FormState>();
 
-  // [KONSEP 1: STATE & CONTROLLER]
   // Controller untuk mengambil dan menyimpan input pengguna.
   final _namaController = TextEditingController();
   final _hargaController = TextEditingController();
@@ -24,7 +22,6 @@ class _FormTambahObatState extends State<FormTambahObat> {
 
   String _jenisObat = 'Sirup';
 
-  // [KONSEP 5: MANAJEMEN MEMORI]
   // Menghapus Controller saat halaman ditutup untuk mencegah memory leak.
   @override
   void dispose() {

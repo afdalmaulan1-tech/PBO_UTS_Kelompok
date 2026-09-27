@@ -1,37 +1,30 @@
-// =========================================================================
-// [KONSEP 1: ABSTRAKSI]
-// Membuat blueprint dasar yang wajib dimiliki semua jenis obat.
-// Tidak dapat dibuat objek langsung.
-// =========================================================================
+// Abstraksi: Obat menjadi class dasar untuk semua jenis obat.
+// Class ini tidak dibuat menjadi objek secara langsung.
 abstract class Obat {
-  // Atribut umum yang dimiliki semua obat.
+  // Data umum yang dimiliki setiap obat.
   String nama;
   int harga;
   String indikasi;
   String urlGambar;
 
-  // Constructor untuk menerima data obat.
+  // Constructor untuk mengisi data obat.
   Obat(this.nama, this.harga, this.indikasi, this.urlGambar);
 
-  // Method abstrak: wajib diisi oleh class turunan.
+  // Setiap jenis obat memiliki aturan pakai yang berbeda.
   String aturanPakai();
 
-  // Method konkret: sudah memiliki isi dan dapat digunakan class turunan.
+  // Informasi umum yang bisa digunakan oleh semua jenis obat.
   String informasi() {
     return "Harga : Rp $harga\nIndikasi : $indikasi";
   }
 }
 
-// =========================================================================
-// [KONSEP 2 & 3: INHERITANCE & POLIMORFISME]
-// =========================================================================
-
-// INHERITANCE: ObatSirup mewarisi atribut dan method dari Obat.
+// Inheritance: ObatSirup mewarisi data dan fungsi dari Obat.
 class ObatSirup extends Obat {
-  // Atribut khusus untuk obat sirup.
+  // Data tambahan khusus untuk obat sirup.
   int volumeMl;
 
-  // Constructor menggunakan super untuk mengisi data dari Obat.
+  // Mengisi data umum melalui constructor dari Obat.
   ObatSirup(
     String nama,
     int harga,
@@ -40,19 +33,19 @@ class ObatSirup extends Obat {
     this.volumeMl,
   ) : super(nama, harga, indikasi, urlGambar);
 
-  // POLIMORFISME: aturanPakai memiliki implementasi khusus untuk sirup.
+  // Polimorfisme: aturan pakai disesuaikan untuk obat sirup.
   @override
   String aturanPakai() {
     return "Kocok dahulu sebelum diminum. Gunakan sendok takar. (Isi: $volumeMl ml)";
   }
 }
 
-// INHERITANCE: ObatTablet mewarisi atribut dan method dari Obat.
+// Inheritance: ObatTablet mewarisi data dan fungsi dari Obat.
 class ObatTablet extends Obat {
-  // Atribut khusus untuk obat tablet.
+  // Data tambahan khusus untuk obat tablet.
   int jumlahButir;
 
-  // Constructor menggunakan super untuk mengisi data dari Obat.
+  // Mengisi data umum melalui constructor dari Obat.
   ObatTablet(
     String nama,
     int harga,
@@ -61,19 +54,19 @@ class ObatTablet extends Obat {
     this.jumlahButir,
   ) : super(nama, harga, indikasi, urlGambar);
 
-  // POLIMORFISME: aturanPakai memiliki implementasi khusus untuk tablet.
+  // Polimorfisme: aturan pakai disesuaikan untuk obat tablet.
   @override
   String aturanPakai() {
     return "Diminum dengan air putih setelah makan. (Isi: $jumlahButir butir)";
   }
 }
 
-// INHERITANCE: ObatSalep mewarisi atribut dan method dari Obat.
+// Inheritance: ObatSalep mewarisi data dan fungsi dari Obat.
 class ObatSalep extends Obat {
-  // Atribut khusus untuk obat salep.
+  // Data tambahan khusus untuk obat salep.
   int beratGram;
 
-  // Constructor menggunakan super untuk mengisi data dari Obat.
+  // Mengisi data umum melalui constructor dari Obat.
   ObatSalep(
     String nama,
     int harga,
@@ -82,7 +75,7 @@ class ObatSalep extends Obat {
     this.beratGram,
   ) : super(nama, harga, indikasi, urlGambar);
 
-  // POLIMORFISME: aturanPakai memiliki implementasi khusus untuk salep.
+  // Polimorfisme: aturan pakai disesuaikan untuk obat salep.
   @override
   String aturanPakai() {
     return "Oleskan tipis-tipis pada area yang sakit/luka luar. (Berat: $beratGram gram)";
