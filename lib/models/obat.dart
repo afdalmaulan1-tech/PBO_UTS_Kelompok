@@ -1,6 +1,7 @@
 // Abstraksi: Obat menjadi class dasar untuk semua jenis obat.
 // Class ini tidak dibuat menjadi objek secara langsung.
 abstract class Obat {
+  // Atribut
   // Data umum yang dimiliki setiap obat.
   String nama;
   int harga;
@@ -10,6 +11,7 @@ abstract class Obat {
   // Constructor untuk mengisi data obat.
   Obat(this.nama, this.harga, this.indikasi, this.urlGambar);
 
+  // Method abstrak (blueprint kosong, memaksa class turunan untuk mengisinya)
   // Setiap jenis obat memiliki aturan pakai yang berbeda.
   String aturanPakai();
 

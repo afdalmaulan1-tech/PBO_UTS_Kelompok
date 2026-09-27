@@ -47,7 +47,7 @@ class _FormTambahObatState extends State<FormTambahObat> {
       String gambar = _gambarController.text;
       int atributKhusus = int.parse(_atributKhususController.text);
 
-      // [KONSEP 3: INSTANSIASI OBJEK]
+      // [INSTANSIASI OBJEK]
       // Membuat objek sesuai jenis obat yang dipilih.
       if (_jenisObat == 'Sirup') {
         obatBaru = ObatSirup(nama, harga, indikasi, gambar, atributKhusus);
@@ -57,7 +57,7 @@ class _FormTambahObatState extends State<FormTambahObat> {
         obatBaru = ObatSalep(nama, harga, indikasi, gambar, atributKhusus);
       }
 
-      // [KONSEP 4: NAVIGASI & PENGIRIMAN DATA]
+      // [NAVIGASI & PENGIRIMAN DATA]
       // Menutup form dan mengirim objek obatBaru ke halaman sebelumnya.
       Navigator.pop(context, obatBaru);
     }
